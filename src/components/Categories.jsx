@@ -24,21 +24,14 @@ const Categories = () => {
         { id: 10, title: "Black Tourmaline Stone", image: "https://i.pinimg.com/736x/59/d3/11/59d311fb4a31c170ece74a5e3936ee6a.jpg", price: 599, oldPrice: "899", discount: "22% OFF", review: 134 }
     ];
 
-   
     const startAutoPlay = () => {
-        
         if (intervalRef.current) return;
-
         intervalRef.current = setInterval(() => {
             const slider = sliderRef.current;
             if (!slider) return;
-
             const card = slider.querySelector(".product-card");
             if (!card) return;
-
             const width = card.offsetWidth + 20; 
-
-           
             if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 20) {
                 slider.scrollTo({ left: 0, behavior: "smooth" });
             } else {
@@ -47,7 +40,6 @@ const Categories = () => {
         }, 2500); 
     };
 
-  
     const stopAutoPlay = () => {
         if (intervalRef.current) {
             clearInterval(intervalRef.current);
@@ -55,7 +47,6 @@ const Categories = () => {
         }
     };
 
-    
     useEffect(() => {
         startAutoPlay();
         return () => stopAutoPlay(); 
@@ -84,7 +75,6 @@ const Categories = () => {
                         <FiChevronLeft />
                     </button>
 
-                    
                     <div 
                         className="products-slider d-flex gap-3 overflow-hidden" 
                         ref={sliderRef} 
@@ -94,18 +84,21 @@ const Categories = () => {
                     >
                         {products.map((item) => (
                             <div 
-                                className="product-card card product-main-card  text-white" 
+                                className="product-card card product-main-card text-white" 
                                 key={item.id} 
-                                style={{ minWidth: '280px', border: '1px solid #222', cursor: 'pointer',backgroundColor:'#0a0a09' }}
+                                style={{ minWidth: '280px', border: '1px solid #222', cursor: 'pointer', backgroundColor: '#0a0a09' }}
                                 onClick={() => navigate(`/product/${item.id}`)} 
                             >
                                 <div className="product-image position-relative">
-                                    <span className="new-tag position-absolute badge bg-warning text-black m-2">NEW</span>
+                                    <span className="new-tag position-absolute badge text-black m-2" style={{ backgroundColor: '#cca43b', top: '0px', left: '0px', zIndex: 3 }}>NEW</span>
+                                    
                                     <img src={item.image} alt={item.title} className="card-img-top" style={{ height: '280px', objectFit: 'cover' }} />
-                                    <div className="product-icons">
+                                    
+                                    {/* दिल वाला बटन पूरी तरह राइट में फ़ोर्स किया है */}
+                                    <div style={{ position: 'absolute', top: '10px', right: '10px', left: 'auto', zIndex: 3 }}>
                                         <FiHeart 
-                                            className="mx-1 text-black" 
-                                            style={{ cursor: 'pointer' }} 
+                                            className="text-black rounded-circle p-1 shadow-sm" 
+                                            style={{ cursor: 'pointer', backgroundColor: 'white', fontSize: '26px' }} 
                                             onClick={(e) => {
                                                 e.stopPropagation(); 
                                             }}
@@ -137,6 +130,7 @@ const Categories = () => {
                                                 id: item.id,
                                                 name: item.title,
                                                 price: item.price,
+                                                quantity: 1, // डिफ़ॉल्ट 1 क्वांटिटी जाएगी यहाँ से
                                                 image: item.image,
                                             });
                                         }}

@@ -1,19 +1,20 @@
 import React from "react";
-
 import { Link } from "react-router-dom"; 
 import { FiSearch, FiHeart, FiShoppingBag } from "react-icons/fi";
 import { IoPersonOutline } from "react-icons/io5";
 import { BiChevronDown } from "react-icons/bi";
 import { GiCrystalBars } from "react-icons/gi";
 
-
 import { useCart } from "../components/CartContext"; 
 
 const Navbar = () => {
 
-  const { toggleDrawer, cartItems } = useCart();
+  const { toggleDrawer, cartItems = [] } = useCart() || {};
 
-  const totalCartItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+  
+  const totalCartItems = Array.isArray(cartItems) 
+    ? cartItems.reduce((total, item) => total + (item.quantity || 1), 0) 
+    : 0;
 
   return (
     <>
@@ -74,11 +75,6 @@ const Navbar = () => {
                   Best Sellers
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link to="/" className="nav-link">
-                  About Us
-                </Link>
-              </li> */}
             </ul>
 
             {/* Right Side Actions */}
@@ -92,19 +88,19 @@ const Navbar = () => {
                 <FiSearch />
               </div>
 
-              {/* Account Link - अब इसपर क्लिक करने से /login पेज खुलेगा */}
+              {/* Account Link */}
               <Link to="/login" className="nav-action text-decoration-none text-white">
                 <IoPersonOutline />
                 <small>Account</small>
               </Link>
 
-              {/* Wishlist Link - अभी के लिए होम पर या आपके विशलिस्ट रूट पर डाल सकते हैं */}
+              {/* Wishlist Link */}
               <Link to="/" className="nav-action text-decoration-none text-white">
                 <FiHeart />
                 <small>Wishlist</small>
               </Link>
 
-              {/* Cart Button - इसपर क्लिक करते ही साइड ड्रॉर खुलेगा */}
+              {/* Cart Button */}
               <div 
                 className="nav-action cart" 
                 onClick={toggleDrawer} 
@@ -112,7 +108,7 @@ const Navbar = () => {
               >
                 <FiShoppingBag />
                 <small>Cart</small>
-                {/* डायनामिक कार्ट काउंट */}
+        
                 <span className="cart-badge">
                   {totalCartItems}
                 </span>

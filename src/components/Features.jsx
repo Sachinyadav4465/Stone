@@ -102,15 +102,15 @@ const Features = () => {
                                 <div className="product-image position-relative">
                                     <span className="new-tag position-absolute badge bg-warning text-black m-2">NEW</span>
                                     <img src={item.image} alt={item.title} className="card-img-top" style={{ height: '280px', objectFit: 'cover' }} />
-                                    <div className="product-icons">
-                                        <FiHeart 
-                                            className="mx-1 text-black" 
-                                            style={{ cursor: 'pointer' }} 
-                                            onClick={(e) => {
-                                                e.stopPropagation(); 
-                                            }}
-                                        />
-                                    </div>
+                                  <div style={{ position: 'absolute', top: '10px', right: '10px', left: 'auto', zIndex: 3 }}>
+                                                                          <FiHeart 
+                                                                              className="text-black rounded-circle p-1 shadow-sm" 
+                                                                              style={{ cursor: 'pointer', backgroundColor: 'white', fontSize: '26px' }} 
+                                                                              onClick={(e) => {
+                                                                                  e.stopPropagation(); 
+                                                                              }}
+                                                                          />
+                                                                      </div>
                                 </div>
                                 <div className="card-body d-flex flex-column justify-content-between">
                                     <div>
