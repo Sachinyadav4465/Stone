@@ -94,7 +94,7 @@ const Categories = () => {
                                     
                                     <img src={item.image} alt={item.title} className="card-img-top" style={{ height: '280px', objectFit: 'cover' }} />
                                     
-                                    {/* दिल वाला बटन पूरी तरह राइट में फ़ोर्स किया है */}
+                               
                                     <div style={{ position: 'absolute', top: '10px', right: '10px', left: 'auto', zIndex: 3 }}>
                                         <FiHeart 
                                             className="text-black rounded-circle p-1 shadow-sm" 
@@ -130,7 +130,7 @@ const Categories = () => {
                                                 id: item.id,
                                                 name: item.title,
                                                 price: item.price,
-                                                quantity: 1, // डिफ़ॉल्ट 1 क्वांटिटी जाएगी यहाँ से
+                                                quantity: 1, 
                                                 image: item.image,
                                             });
                                         }}

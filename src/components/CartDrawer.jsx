@@ -21,9 +21,9 @@ const CartDrawer = () => {
 
         <div className="drawer-body p-3">
           {cartItems.length === 0 ? (
-            <div className="text-center text-muted my-5">
+            <div className="text-center = my-5">
               <p>Your cart is empty.</p>
-              <button className="btn btn-gold btn-sm" onClick={toggleDrawer}>Shop Collection</button>
+              <button className="btn btn-gold text-white btn-sm" onClick={toggleDrawer}>Shop Collection</button>
             </div>
           ) : (
             cartItems.map((item) => (
@@ -54,7 +54,7 @@ const CartDrawer = () => {
               <span className="text-uppercase fw-semibold">Subtotal:</span>
               <span className="gold-text fw-bold fs-5">₹{totalPrice}</span>
             </div>
-            <button className="btn btn-gold w-100 text-uppercase fw-bold mb-2">Proceed to Checkout</button>
+            <button className="btn btn-gold w-100 text-uppercase text-white fw-bold mb-2">Proceed to Checkout</button>
             <button className="btn btn-outline-light w-100 text-uppercase btn-sm" onClick={toggleDrawer}>Continue Shopping</button>
           </div>
         )}

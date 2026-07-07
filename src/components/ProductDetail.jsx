@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useCart } from "../components/CartContext";
 
+// Saare Icons Jo Error de rahe the
 import { FiChevronLeft, FiHeart, FiShoppingCart, FiZap, FiCheckCircle } from "react-icons/fi";
 import { AiFillStar } from "react-icons/ai";
 
@@ -25,6 +26,24 @@ const ProductDetail = () => {
     const handleQuantity = (type) => {
         if (type === "dec" && quantity > 1) setQuantity(quantity - 1);
         if (type === "inc") setQuantity(quantity + 1);
+    };
+
+    // Updated 'Buy It Now' click handler with localStorage protection
+    const handleBuyNow = () => {
+        const itemsToCheckout = [
+            {
+                id: product.id,
+                name: product.title,
+                desc: `Quantity: ${quantity} | Premium Handpicked`,
+                price: product.price * quantity // Total calculated price
+            }
+        ];
+
+        // 1. Storage safety wrapper lagaya jo Checkout backup read karega
+        localStorage.setItem("checkoutProducts", JSON.stringify(itemsToCheckout));
+
+        // 2. Navigate to checkout with fallback state pass
+        navigate("/checkout", { state: { checkoutProducts: itemsToCheckout } });
     };
 
     return (
@@ -69,13 +88,12 @@ const ProductDetail = () => {
                                 <span className="text-white small ms-2">({product.review} Customer Reviews)</span>
                             </div>
 
-                        
                             <div className="price-box d-flex align-items-center gap-3 mb-4 py-2 px-3 rounded" style={{ backgroundColor: "#0a0a09", border: "1px solid #222", width: "fit-content" }}>
                                 <h3 className="m-0 fw-bold" style={{ color: "#cca43b" }}>₹{product.price * quantity}</h3>
                                 <span className="badge bg-white text-dark fw-bold">{product.discount}</span>
                             </div>
 
-                            <p className="text-muted mb-4" style={{ fontSize: "14px", lineHeight: "1.6" }}>
+                            <p className=" mb-4" style={{ fontSize: "14px", lineHeight: "1.6" }}>
                                 Experience the powerful positive vibrations of this natural {product.title}. Handpicked with premium craftsmanship, it helps in cleansing environment energies.
                             </p>
 
@@ -113,7 +131,11 @@ const ProductDetail = () => {
                                 </button>
                             </div>
                             <div className="col-12 col-sm-6">
-                                <button className="btn w-100 text-uppercase fw-bold d-flex align-items-center justify-content-center gap-2" style={{ backgroundColor: "#cca43b", color: "#000", border: "none", height: "48px", fontSize: "14px" }}>
+                                <button 
+                                    className="btn w-100 text-uppercase fw-bold d-flex align-items-center justify-content-center gap-2" 
+                                    onClick={handleBuyNow}
+                                    style={{ backgroundColor: "#cca43b", color: "#000", border: "none", height: "48px", fontSize: "14px" }}
+                                >
                                     <FiZap /> Buy It Now
                                 </button>
                             </div>

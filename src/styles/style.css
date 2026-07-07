@@ -1994,3 +1994,111 @@ h1,h2,h3,h4,h5{
 .item-qty {
   font-size: 0.9rem;
 }
+/* Color Palette & Font Styles */
+.checkout-page {
+  background-color: #0b0b0b; /* Rich Dark Background */
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', 'Georgia', serif;
+}
+
+/* Gold Text Colors */
+.text-gold {
+  color: #dfba6b !important; /* Premium Gold from Header buttons */
+}
+
+.text-gold-light {
+  color: #f3e1b9;
+}
+
+.text-muted-gold {
+  color: #bfa46f;
+  font-size: 0.9rem;
+}
+
+.tracking-wider {
+  letter-spacing: 2px;
+}
+
+.section-title {
+  border-bottom: 1px solid #dfba6b33;
+  padding-bottom: 8px;
+}
+
+/* Custom Inputs & Dropdowns */
+.custom-input {
+  background-color: #161616 !important;
+  border: 1px solid #333333 !important;
+  color: #ffffff !important;
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem;
+}
+
+.custom-input:focus {
+  background-color: #1a1a1a !important;
+  border-color: #dfba6b !important;
+  box-shadow: 0 0 0 0.25rem rgba(223, 186, 107, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* Dropdown Arrow Fix for dark background */
+select.custom-input {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23dfba6b' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+/* Buttons */
+.btn-gold-filled {
+  background-color: #dfba6b;
+  color: #0b0b0b;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: 1px solid #dfba6b;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-gold-filled:hover {
+  background-color: #cbad5a;
+  color: #0b0b0b;
+  box-shadow: 0 0 15px rgba(223, 186, 107, 0.3);
+}
+
+.btn-gold-outline {
+  background-color: transparent;
+  color: #dfba6b;
+  border: 1px solid #dfba6b;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-gold-outline:hover {
+  background-color: #dfba6b;
+  color: #0b0b0b;
+}
+
+/* Order Summary Box */
+.order-summary-card {
+  background-color: #121212;
+  border: 1px solid #262626;
+}
+
+.bg-gold {
+  background-color: #dfba6b !important;
+}
+
+/* Radios & Checkboxes custom style */
+.custom-radio:checked {
+  background-color: #dfba6b !important;
+  border-color: #dfba6b !important;
+}
+
+.custom-radio {
+  background-color: #161616;
+  border: 1px solid #444;
+}
+
+.trust-badges {
+  background-color: #121212;
+}

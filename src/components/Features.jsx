@@ -100,8 +100,8 @@ const Features = () => {
                                 onClick={() => navigate(`/product/${item.id}`)} 
                             >
                                 <div className="product-image position-relative">
-                                    <span className="new-tag position-absolute badge bg-warning text-black m-2">NEW</span>
-                                    <img src={item.image} alt={item.title} className="card-img-top" style={{ height: '280px', objectFit: 'cover' }} />
+                                    <span className="new-tag position-absolute badge  text-black m-2">NEW</span>
+                                    <img src={item.image} alt={item.title} className="card-img-top" style={{ height: '280px', objectFit: 'cover',backgroundColor :"#cca43b"}} />
                                   <div style={{ position: 'absolute', top: '10px', right: '10px', left: 'auto', zIndex: 3 }}>
                                                                           <FiHeart 
                                                                               className="text-black rounded-circle p-1 shadow-sm" 

@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Signup from "./components/Signup";
 import ProductDetail from "./components/ProductDetail";
+import Checkout from "./components/Checkout";
+import Wishlist from "./components/Wishlist";
 
 import { CartProvider } from "./components/CartContext";
 import CartDrawer from "./components/CartDrawer";
@@ -27,6 +29,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
         <Footer />
       </Router>
